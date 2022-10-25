@@ -5,6 +5,9 @@
   
   DroneBot Workshop 2019
   https://dronebotworkshop.com
+
+  SDA = A4 
+  SDL = A5
 */
 
 // Include Wire Library for I2C
