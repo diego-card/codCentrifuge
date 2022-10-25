@@ -1,15 +1,3 @@
-/*
-  Displays on 128 x 64 OLED display
-  Uses Adafruit SSD1306 OLED Library
-  Uses Adafruit GFX Graphics Library
-  
-  DroneBot Workshop 2019
-  https://dronebotworkshop.com
-
-  SDA = A4 
-  SDL = A5
-*/
-
 // Include Wire Library for I2C
 #include <Wire.h>
 
@@ -21,19 +9,30 @@
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
 
+// SDA = A4, sdl = A5
+int vs =8; // vibration sensor
+long measurement = 0;
 
-void setup() {
+void setup(){
+  pinMode(vs, INPUT); 
+  Serial.begin(9600);
   // Start Wire library for I2C
   Wire.begin();
   
   // initialize OLED with I2C addr 0x3C
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+
+}
+
+long vibration(){
+   
+   return pulseIn (vs, HIGH);  //wait for the pin to get HIGH and returns measurement
   
 }
 
-void displayDespacito(){
-  // Delay to allow sensor to stabalize
-  delay(2000);
+void displayVibracao() {
+  measurement =vibration();
+  delay(500);
 
   // Clear the display
   display.clearDisplay();
@@ -43,16 +42,16 @@ void displayDespacito(){
   display.setTextSize(1);
   //Set the cursor coordinates
   display.setCursor(0,0);
-  display.print("Apenas un teste");
-  display.setCursor(0,10); 
-  display.print("Despacito"); // 21 caracters each line
-  display.print("DESPACITO");
-  display.setCursor(0,20);
-  display.print("Poquito"); 
-  display.print("POQUITO");
-  display.print("Poquito");
+  display.print("Vibracao Atual:");
+  display.setCursor(0, 10);
+  display.print(measurement);
+
 }
-void loop() {
-  displayDespacito();
+
+void loop(){
+  measurement =vibration();
+  delay(50);
+  Serial.println(measurement);
+  displayVibracao();
   display.display();
 }

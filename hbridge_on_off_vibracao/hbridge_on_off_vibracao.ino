@@ -1,11 +1,25 @@
 // Pra testar o motor ligando direto na placa com arduino como energia: Positivo(+) = 5v, in1 = 5v, in2 = GND.
+
+// Include hbridge library
 #include <MX1508.h>
+// Include Wire Library for I2C
+#include <Wire.h>
+
+// Include Adafruit Graphics & OLED libraries
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+// SDA = A4, SDL = A5
+
+// Reset pin not used but needed for library
+#define OLED_RESET 4
+Adafruit_SSD1306 display(OLED_RESET);
 
 #define PINA 9
 #define PINB 10
 #define NUMPWM 2
 
 int vs =8; // vibration sensor
+long measurement = 0;
 boolean on = true;
 
 // MX1508 schematics(in Chinese) can be found here at: http://sales.dzsc.com/486222.html
@@ -20,36 +34,50 @@ boolean on = true;
 MX1508 motorA(PINA,PINB, FAST_DECAY, NUMPWM);
 
 void setup() {
+  // Start Wire library for I2C
+  Wire.begin();
+
+  // initialize OLED with I2C addr 0x3C
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
+
+  //Vibration
   pinMode(vs, INPUT); 
   Serial.begin(115200);
 }
-/*
- * Ramp up to pwm = 100, by increasing pwm by 1 every 50 millisecond. 
- * then ramp down to pwm = -100, by decreasing pwm every 50 millisecond.
- * positive value pwm results in forward direction.
- * negative value pwm results in opposite direction. 
- */
+
+long vibration(){
+  return pulseIn (vs, HIGH);  //wait for the pin to get HIGH and returns measurement
+}
+
+void displayLed(){
+  measurement =vibration();
+  // Delay to allow sensor to stabalize
+  delay(500);
+
+  // Clear the display
+  display.clearDisplay();
+  //Set the color - always use white despite actual display color
+  display.setTextColor(WHITE);
+  //Set the font size
+  display.setTextSize(1);
+  //Set the cursor coordinates
+  display.setCursor(0,0);
+  display.print("Vibre para on/off");
+  display.setCursor(0,10);
+  display.print("Vibracao atual:");
+  display.print(measurement);
+  
+}
+
 void loop() {
   // put your main code here, to run repeatedly:
+  displayLed();
+  display.display();
   static unsigned long lastMilli = 0;
   static bool cwDirection = true; // assume initial direction(positive pwm) is clockwise
   static int pwm = 1;
-  
-  /*if(millis()-lastMilli > 50){ // every 50 millisecond
-      if (cwDirection && pwm++ > 100 ) {  
-        cwDirection = false;
-      } else if (!cwDirection && pwm-- < -100) {
-        cwDirection =  true;
-      } 
-    motorA.motorGo(pwm);
-    lastMilli = millis();
-    Serial.println(motorA.getPWM()); // we can just print pwm but just showing that member function getPWM() works.
-  }*/
 
- //comment everything else and use this
- //motorA.motorGo(100);
-
-  long measurement =vibration();
+  measurement =vibration();
   delay(50);
   Serial.println(measurement);
 
@@ -62,9 +90,7 @@ void loop() {
   } else if(measurement > 2000){
     on = true;
   }
+
+ //motorA.motorGo(100);
   
-}
-long vibration(){
-  long measurement=pulseIn (vs, HIGH);  //wait for the pin to get HIGH and returns measurement
-  return measurement;
 }
