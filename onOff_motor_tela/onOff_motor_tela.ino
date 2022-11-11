@@ -60,7 +60,8 @@ void loop() {
   static unsigned long lastMilli = 0;
   static bool cwDirection = true; // assume initial direction(positive pwm) is clockwise
   static int pwm = 1;
-  
+
+    //toggle button switch
     if (digitalRead(button) == true) {
       status = !status;
       digitalWrite(LED_BUILTIN, status); // turn the LED on (HIGH is the voltage level)
