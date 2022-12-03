@@ -22,6 +22,13 @@
 #define OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);
 
+// Include hbridge library
+#include <MX1508.h>
+#define PINA 9
+#define PINB 10
+#define NUMPWM 2
+MX1508 motorA(PINA,PINB, FAST_DECAY, NUMPWM);
+
 // OneButton Library
 #include <OneButton.h>
 
@@ -29,7 +36,7 @@ Adafruit_SSD1306 display(OLED_RESET);
 
 /**
  * Initialize a new OneButton instance for a button
- * connected to digital pin 4 and GND, which is active low
+ * connected to digital pin 2 and GND, which is active low
  * and uses the internal pull-up resistor.
  */
 
@@ -41,7 +48,7 @@ OneButton btn = OneButton(
 
 // Other Variables
 int menu = 1;
-bool voltar = false;
+int status = false;
 
 
 void setup() {
@@ -52,10 +59,6 @@ void setup() {
   // Onebutton functions
   btn.attachDoubleClick([](){
     Serial.println("Double Pressed!");
-  });
-
-  btn.attachLongPressStart([](){
-    Serial.println("Long Pressed");
   });
 
   // initialize OLED with I2C addr 0x3C
@@ -154,20 +157,20 @@ void updateMenu(){
       display.setCursor(0,0);
       display.print("Ligar Centrifuga");
       display.setCursor(0,10);
-      display.print("Aperte para ligar, ou");
+      display.print("Segure para ligar, ou");
       display.setCursor(0,20);
       display.print("denovo para desligar;");
       refresh();
       break;
-     case 21:
+     /*case 21:
       header();
       display.setCursor(0,10);
       display.print(" Item1 do Menu 1");
       display.setCursor(0,20);
       display.print(">Item2 do Menu 1");
       refresh();
-      break;
-     case 22:
+      break;*/
+     case 21:
       menu = 20;
       updateMenu();
       break;
@@ -187,20 +190,22 @@ void executeAction() {
     case 4:
       action4();
       break;
-     //case 20:
-      //Coisa do motor
-      /*
-      btn.attachClick([](){
-      Serial.println("Pressionado.");
-      if (ligado == false){
+     case 20:
+     //Coisa do motor
+      
+      static unsigned long lastMilli = 0;
+      static bool cwDirection = true; // assume initial direction(positive pwm) is clockwise
+      static int pwm = 1;
+    
+      status = !status;
+      if (status == true){
         Serial.println("Desligado!");
-        ligado = true;
-      } else{
+        motorA.stopMotor();
+      } else {
         Serial.println("Ligado!");
-        ligado = false;
-        }
-      });
-      */
+        motorA.motorGo(100);
+       }
+      break;
   }
 }
 
