@@ -42,7 +42,7 @@ void setup() {
 
   //Vibration
   pinMode(vs, INPUT); 
-  Serial.begin(115200);
+  Serial.begin(9600);
 }
 
 long vibration(){
@@ -78,16 +78,16 @@ void loop() {
   static int pwm = 1;
 
   measurement =vibration();
-  delay(50);
+  delay(10);
   Serial.println(measurement);
 
   if(on == true){
     motorA.motorGo(100);
-    if(measurement > 2000){
+    if(measurement > 5000){
       motorA.stopMotor();
       on = false;
     }
-  } else if(measurement > 2000){
+  } else if(measurement > 5000){
     on = true;
   }
 

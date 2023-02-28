@@ -1,13 +1,13 @@
 int vs =9; // vibration sensor
 
 void setup(){
-  pinMode(vs, INPUT); 
+  pinMode(vs, INPUT_PULLUP); 
   Serial.begin(9600); 
 
 }
 void loop(){
   long measurement =vibration();
-  delay(50);
+  delay(0);
   Serial.println(measurement);
 }
 
