@@ -1,3 +1,4 @@
+// Sensor: Waterproof Thermistor NTC 10K
 #include <Thermistor.h> //INCLUSÃO DA BIBLIOTECA
  
 Thermistor temp(2); //VARIÁVEL DO TIPO THERMISTOR, INDICANDO O PINO ANALÓGICO (A2) EM QUE O SENSOR ESTÁ CONECTADO
@@ -13,3 +14,9 @@ void loop() {
   Serial.println("*C"); //IMPRIME O TEXTO NO MONITOR SERIAL
   delay(1000); //INTERVALO DE 1 SEGUNDO
 }
+
+
+
+
+
+// https://blogmasterwalkershop.com.br/arduino/como-usar-com-arduino-termistor-ntc-10k-sensor-de-temperatura

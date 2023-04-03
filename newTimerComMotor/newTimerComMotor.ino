@@ -1,6 +1,15 @@
 // Include Wire Library for I2C
 #include <Wire.h>
 
+// hbridge
+#include <MX1508.h>
+
+#define PINA 9
+#define PINB 10
+#define NUMPWM 2
+
+MX1508 motorA(PINA,PINB, FAST_DECAY, NUMPWM);
+
 // Include Adafruit Graphics & OLED libraries
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
@@ -70,12 +79,17 @@ void print_time() {
 }
 
 void tdownComplete() {
+  motorA.stopMotor();
   Serial.print("ok");
 }
 
 //tdown.stop();
 
 void loop() {
+  static unsigned long lastMilli = 0;
+  static bool cwDirection = true; // assume initial direction(positive pwm) is clockwise
+  static int pwm = 1;
+
   tdown.run();
 
   if (digitalRead(bt_mode) == 0) {
@@ -132,6 +146,8 @@ void loop() {
       // digitalWrite(relay, HIGH);
       tdown.start();
 
+      motorA.motorGo(100);
+
       running = !running;
     } else {
       // flag2 = 1;  
@@ -139,6 +155,8 @@ void loop() {
       // digitalWrite(relay, LOW);
       tdown.pause();
       
+      motorA.stopMotor();
+
       running = !running;
     }
   }

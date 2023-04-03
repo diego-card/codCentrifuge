@@ -8,12 +8,19 @@
 
   SDA = A4 
   SDL = A5
+
+Using fonts:
+  https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts
 */
 
 // Include Wire Library for I2C
 #include <Wire.h>
 
-// Include Adafruit Graphics & OLED libraries
+/// #define bt_mode A3
+// #define bt_up A2
+// #define bt_down A1
+// #define bt_select A0
+/ Include Adafruit Graphics & OLED libraries
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
