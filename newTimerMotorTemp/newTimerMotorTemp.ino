@@ -98,7 +98,6 @@ void loop() {
 
   int temperature = temp.getTemp();
   // Serial.print(temperature);
-  //display.clearDisplay();
   if(temperature > 30){
     motorA.stopMotor();
     display.clearDisplay();
