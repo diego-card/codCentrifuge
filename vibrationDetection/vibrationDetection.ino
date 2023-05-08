@@ -27,7 +27,7 @@ void setup(){
 void loop(){
 
   // Need to see what value the analog read's should consitute a trigger.
-  if(analogRead(A5) == 10){
+  if(analogRead(A3) == 20){
     long currentMillis = millis();
     addVibrationSample(currentMillis);
     if(isVibrationAlarmTiggered()){
