@@ -1,0 +1,73 @@
+BALANCEADOS X
+Mean of Median: 131.53833333333336
+Mean of 25%: 117.125
+Mean of 50%: 790.0
+Mean of 75%: 143.875
+Mean of Std: 24.330000000000002
+Mean of Min: 64.0
+Mean of Max: 201.83333333333334
+Mean of Count: 412.8333333333333
+Y
+Mean of Median: 119.44
+Mean of 25%: 106.66666666666667
+Mean of 50%: 721.0
+Mean of 75%: 130.66666666666666
+Mean of Std: 17.338333333333335
+Mean of Min: 78.66666666666667
+Mean of Max: 164.0
+Mean of Count: 412.8333333333333
+Z
+Mean of Median: 102.055
+Mean of 25%: 13.833333333333334
+Mean of 50%: 309.0
+Mean of 75%: 226.29166666666666
+Mean of Std: 101.81333333333333
+Mean of Min: 0.0
+Mean of Max: 255.0
+Mean of Count: 412.8333333333333
+TEMPERATURE
+Mean of Median: 25.691666666666663
+Mean of 25%: 25.5
+Mean of 50%: 154.0
+Mean of 75%: 26.0
+Mean of Std: 0.23166666666666666
+Mean of Min: 25.5
+Mean of Max: 26.0
+Mean of Count: 412.8333333333333
+--------------------------------------
+DESBALANCEADOS X
+Mean of Median: 130.31333333333333
+Mean of 25%: 105.04166666666667
+Mean of 50%: 792.0
+Mean of 75%: 153.29166666666666
+Mean of Std: 49.29333333333333
+Mean of Min: 2.5
+Mean of Max: 254.0
+Mean of Count: 447.8333333333333
+Y
+Mean of Median: 121.53166666666668
+Mean of 25%: 95.08333333333333
+Mean of 50%: 726.0
+Mean of 75%: 145.75
+Mean of Std: 46.845
+Mean of Min: 1.6666666666666667
+Mean of Max: 252.66666666666666
+Mean of Count: 447.8333333333333
+Z
+Mean of Median: 104.26333333333332
+Mean of 25%: 27.583333333333332
+Mean of 50%: 557.5
+Mean of 75%: 169.16666666666666
+Mean of Std: 81.33333333333333
+Mean of Min: 0.0
+Mean of Max: 255.0
+Mean of Count: 447.8333333333333
+TEMPERATURE
+Mean of Median: 28.686666666666667
+Mean of 25%: 28.666666666666668
+Mean of 50%: 172.0
+Mean of 75%: 28.666666666666668
+Mean of Std: 0.09333333333333334
+Mean of Min: 28.333333333333332
+Mean of Max: 28.833333333333332
+Mean of Count: 447.8333333333333

@@ -113,7 +113,7 @@ void print_time() {
 
 void tdownComplete() {
   motorA.stopMotor();
-  Serial.print("ok");
+  // Serial.print("ok");
 }
 
 //tdown.stop();
@@ -126,32 +126,35 @@ static bool cwDirection = true; // assume initial direction(positive pwm) is clo
 static int pwm = 1;
 
 void loop() {
+  int temperature = temp.getTemp();
+
   mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-  data.X = map(ax, -17000, 17000, 0, 255 ); // X axis data
+  data.X = map(ax, -17000, 17000, 0, 255);
   data.Y = map(ay, -17000, 17000, 0, 255); 
-  data.Z = map(az, -17000, 17000, 0, 255);  // Y axis data
+  data.Z = map(az, -17000, 17000, 255, 0);
+
   Serial.print(data.X);
   Serial.print(",");
   //Serial.print("Axis Y = ");
   Serial.print(data.Y);
   Serial.print(",");
   //Serial.print("Axis Z  = ");
-  Serial.println(data.Z);
+  Serial.print(data.Z);
+  Serial.print(",");
+  Serial.println(temperature);
 
   //Vibration detection
-  if(data.Z <= 20){
-    long currentMillis = millis();
-    addVibrationSample(currentMillis);
-    if(isVibrationAlarmTiggered()){
-      triggerAlarm();
-      Serial.println(String(millis()) + "\t ALARM");
-    }
-    delay(100); // wait for current vibration shock to subside
-  }
+  // if(data.Z <= 20){
+  //   long currentMillis = millis();
+  //   addVibrationSample(currentMillis);
+  //   if(isVibrationAlarmTiggered()){
+  //     triggerAlarm();
+  //     Serial.println(String(millis()) + "\t ALARM");
+  //   }
+  //   delay(100); // wait for current vibration shock to subside
+  // }
 
   tdown.run();
-
-  int temperature = temp.getTemp();
 
   // Serial.print(temperature);
   if(temperature > 40){
