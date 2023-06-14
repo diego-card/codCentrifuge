@@ -144,15 +144,15 @@ void loop() {
   Serial.println(temperature);
 
   //Vibration detection
-  // if(data.Z <= 20){
-  //   long currentMillis = millis();
-  //   addVibrationSample(currentMillis);
-  //   if(isVibrationAlarmTiggered()){
-  //     triggerAlarm();
-  //     Serial.println(String(millis()) + "\t ALARM");
-  //   }
-  //   delay(100); // wait for current vibration shock to subside
-  // }
+  if(!(data.X >= 75 && data.X <= 179) || !(data.Y >= 71 && data.Y <= 171) || (data.Z >= 69 && data.Z <= 203)){
+    long currentMillis = millis();
+    addVibrationSample(currentMillis);
+    if(isVibrationAlarmTiggered()){
+      triggerAlarm();
+      Serial.println(String(millis()) + "\t ALARM");
+    }
+    delay(100); // wait for current vibration shock to subside
+  }
 
   tdown.run();
 

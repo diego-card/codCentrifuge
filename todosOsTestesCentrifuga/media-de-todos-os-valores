@@ -1,5 +1,5 @@
 BALANCEADOS X
-Mean of Median: 131.53833333333336
+Mean of Median: 131.53833333333333
 Mean of 25%: 117.125
 Mean of 50%: 790.0
 Mean of 75%: 143.875
@@ -26,48 +26,51 @@ Mean of Min: 0.0
 Mean of Max: 255.0
 Mean of Count: 412.8333333333333
 TEMPERATURE
-Mean of Median: 25.691666666666663
-Mean of 25%: 25.5
-Mean of 50%: 154.0
-Mean of 75%: 26.0
-Mean of Std: 0.23166666666666666
-Mean of Min: 25.5
-Mean of Max: 26.0
-Mean of Count: 412.8333333333333
+Mean of Median: 25.592857142857145
+Mean of 25%: 25.428571428571427
+Mean of 50%: 179.0
+Mean of 75%: 25.857142857142858
+Mean of Std: 0.19857142857142857
+Mean of Min: 25.428571428571427
+Mean of Max: 25.857142857142858
+Mean of Count: 390.0
 --------------------------------------
 DESBALANCEADOS X
-Mean of Median: 130.31333333333333
-Mean of 25%: 105.04166666666667
-Mean of 50%: 792.0
-Mean of 75%: 153.29166666666666
-Mean of Std: 49.29333333333333
-Mean of Min: 2.5
-Mean of Max: 254.0
-Mean of Count: 447.8333333333333
+Mean of Median: 129.65857142857143
+Mean of 25%: 104.39285714285714
+Mean of 50%: 923.0
+Mean of 75%: 153.25
+Mean of Std: 49.45857142857143
+Mean of Min: 2.142857142857143
+Mean of Max: 253.42857142857142
+Mean of Count: 442.0
 Y
-Mean of Median: 121.53166666666668
-Mean of 25%: 95.08333333333333
-Mean of 50%: 726.0
-Mean of 75%: 145.75
-Mean of Std: 46.845
-Mean of Min: 1.6666666666666667
-Mean of Max: 252.66666666666666
-Mean of Count: 447.8333333333333
+Mean of Median: 121.66714285714286
+Mean of 25%: 93.42857142857143
+Mean of 50%: 847.0
+Mean of 75%: 146.85714285714286
+Mean of Std: 47.55428571428571
+Mean of Min: 2.2857142857142856
+Mean of Max: 252.71428571428572
+Mean of Count: 442.0
 Z
-Mean of Median: 104.26333333333332
-Mean of 25%: 27.583333333333332
-Mean of 50%: 557.5
-Mean of 75%: 169.16666666666666
-Mean of Std: 81.33333333333333
+Mean of Median: 104.17285714285715
+Mean of 25%: 26.642857142857142
+Mean of 50%: 669.5
+Mean of 75%: 169.71428571428572
+Mean of Std: 81.48
 Mean of Min: 0.0
 Mean of Max: 255.0
-Mean of Count: 447.8333333333333
+Mean of Count: 442.0
 TEMPERATURE
-Mean of Median: 28.686666666666667
-Mean of 25%: 28.666666666666668
-Mean of 50%: 172.0
-Mean of 75%: 28.666666666666668
-Mean of Std: 0.09333333333333334
-Mean of Min: 28.333333333333332
-Mean of Max: 28.833333333333332
-Mean of Count: 447.8333333333333
+Mean of Median: 28.734285714285715
+Mean of 25%: 28.714285714285715
+Mean of 50%: 201.0
+Mean of 75%: 28.714285714285715
+Mean of Std: 0.1
+Mean of Min: 28.428571428571427
+Mean of Max: 29.0
+Mean of Count: 442.0
+
+
+OBS: Os valores da centrífuga parada não foi incluída nos experimentos.
