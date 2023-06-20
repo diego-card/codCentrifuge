@@ -144,38 +144,38 @@ void loop() {
   Serial.println(temperature);
 
   //Vibration detection
-  if(!(data.X >= 75 && data.X <= 179) || !(data.Y >= 71 && data.Y <= 171) || (data.Z >= 69 && data.Z <= 203)){
-    long currentMillis = millis();
-    addVibrationSample(currentMillis);
-    if(isVibrationAlarmTiggered()){
-      triggerAlarm();
-      Serial.println(String(millis()) + "\t ALARM");
-    }
-    delay(100); // wait for current vibration shock to subside
-  }
+  // if(!(data.X >= 75 && data.X <= 179) || !(data.Y >= 71 && data.Y <= 171) || (data.Z >= 69 && data.Z <= 203)){
+  //   long currentMillis = millis();
+  //   addVibrationSample(currentMillis);
+  //   if(isVibrationAlarmTiggered()){
+  //     triggerAlarm();
+  //     Serial.println(String(millis()) + "\t ALARM");
+  //   }
+  //   delay(100); // wait for current vibration shock to subside
+  // }
 
   tdown.run();
 
   // Serial.print(temperature);
-  if(temperature > 40){
-    motorA.stopMotor();
-    display.clearDisplay();
-    display.setFont(NULL);
-    display.setTextSize(1);
-    display.setCursor(0, 0);
-    display.print("DESLIGUE A CENTRIFUGA");
-    display.setTextSize(2);
-    display.setCursor(0, 10);
-    display.print("QUENTE:");
-    display.setCursor(90, 10);
-    display.print(temperature);
-    display.setCursor(115, 10);
-    display.print("C");
-    Serial.print("Danger!");
-    perigoTemp = true;
-  } else {
-    perigoTemp = false;
-  }
+  // if(temperature > 40){
+  //   motorA.stopMotor();
+  //   display.clearDisplay();
+  //   display.setFont(NULL);
+  //   display.setTextSize(1);
+  //   display.setCursor(0, 0);
+  //   display.print("DESLIGUE A CENTRIFUGA");
+  //   display.setTextSize(2);
+  //   display.setCursor(0, 10);
+  //   display.print("QUENTE:");
+  //   display.setCursor(90, 10);
+  //   display.print(temperature);
+  //   display.setCursor(115, 10);
+  //   display.print("C");
+  //   Serial.print("Danger!");
+  //   perigoTemp = true;
+  // } else {
+  //   perigoTemp = false;
+  // }
 
   //only enter if both perigo are false
   if(perigoTemp == false && perigoVibra == false){
