@@ -1,7 +1,7 @@
 # Projeto Centrifuga Inteligente
 Arduino codes for the on going Inteligent Centrifuge project.
 <br/> <br/>
-Projeto final desenvolvido na matéria de Programação para Internet 2 no curso de Tecnologia em Sistemas para Internet (2022/2)
+Projeto final desenvolvido na matéria de TCC no curso de Tecnologia em Sistemas para Internet (2023)
 <br/><br/>
 Autores: Diego Cardoso e Érika Silva
 <br/><br/>
